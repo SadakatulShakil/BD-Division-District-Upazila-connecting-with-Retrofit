@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.bangladeshdivdisuppersing.Model.DatumDiv;
 import com.example.bangladeshdivdisuppersing.Model.District;
 import com.example.bangladeshdivdisuppersing.Model.Division;
 import com.example.bangladeshdivdisuppersing.Model.Upazila;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
+    private ArrayList<DatumDiv>mydivDataList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
         myDistrictList = new ArrayList<>();
         myUpazilaList = new ArrayList<>();
 
+        mydivDataList = new ArrayList<>();
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        myDivAdapter = new DivisionAdapter(MainActivity.this, myDivisionList);
+        myDivAdapter = new DivisionAdapter(MainActivity.this, mydivDataList);
         recyclerView.setAdapter(myDivAdapter);
 
         loadDivisionData();
@@ -67,9 +72,13 @@ public class MainActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     List<Division> divisions = response.body();
 
-                    Log.d(TAG, "onResponse: ok "+divisions.get(2).getData().size());
+                    List<DatumDiv> datumDivList = new ArrayList<>();
 
-                    myDivisionList.addAll(divisions);
+                    datumDivList.addAll(divisions.get(2).getData());
+
+                    Log.d(TAG, "onResponse: ok "+datumDivList.size());
+
+                    //myDivisionList.addAll(divisions);
                     myDivAdapter.notifyDataSetChanged();
                 }
             }

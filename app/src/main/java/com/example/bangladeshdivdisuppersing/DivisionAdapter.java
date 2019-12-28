@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bangladeshdivdisuppersing.Model.DatumDiv;
 import com.example.bangladeshdivdisuppersing.Model.Division;
 
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 public class DivisionAdapter extends RecyclerView.Adapter<DivisionAdapter.viewHolder> {
 
     private Context context;
-    private ArrayList<Division>divisionArrayList;
+    private ArrayList<DatumDiv>divisionArrayList;
 
-    public DivisionAdapter(Context context, ArrayList<Division> divisionArrayList) {
+    public DivisionAdapter(Context context, ArrayList<DatumDiv> divisionArrayList) {
         this.context = context;
         this.divisionArrayList = divisionArrayList;
     }
@@ -36,9 +37,9 @@ public class DivisionAdapter extends RecyclerView.Adapter<DivisionAdapter.viewHo
     @Override
     public void onBindViewHolder(@NonNull DivisionAdapter.viewHolder holder, int position) {
 
-        final Division currentDiv = divisionArrayList.get(position);
+        final DatumDiv currentDiv = divisionArrayList.get(position);
 
-        String stringName = currentDiv.getData().get(0).getName();
+        String stringName = currentDiv.getName();
 
         holder.nameTV.setText(stringName);
     }
