@@ -1,10 +1,13 @@
 
 package com.example.bangladeshdivdisuppersing.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DatumDis {
+public class DatumDis implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -27,6 +30,28 @@ public class DatumDis {
     @SerializedName("url")
     @Expose
     private String url;
+
+    protected DatumDis(Parcel in) {
+        id = in.readString();
+        divisionId = in.readString();
+        name = in.readString();
+        bnName = in.readString();
+        lat = in.readString();
+        lon = in.readString();
+        url = in.readString();
+    }
+
+    public static final Creator<DatumDis> CREATOR = new Creator<DatumDis>() {
+        @Override
+        public DatumDis createFromParcel(Parcel in) {
+            return new DatumDis(in);
+        }
+
+        @Override
+        public DatumDis[] newArray(int size) {
+            return new DatumDis[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -84,4 +109,32 @@ public class DatumDis {
         this.url = url;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(divisionId);
+        dest.writeString(name);
+        dest.writeString(bnName);
+        dest.writeString(lat);
+        dest.writeString(lon);
+        dest.writeString(url);
+    }
+
+    @Override
+    public String toString() {
+        return "DatumDis{" +
+                "id='" + id + '\'' +
+                ", divisionId='" + divisionId + '\'' +
+                ", name='" + name + '\'' +
+                ", bnName='" + bnName + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

@@ -81,11 +81,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void loadDistrictData() {
-
-    }
-
-    private void loadUpazilaData() {
-
-    }
 }

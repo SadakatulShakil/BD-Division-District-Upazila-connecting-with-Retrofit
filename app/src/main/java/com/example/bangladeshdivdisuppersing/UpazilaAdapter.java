@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bangladeshdivdisuppersing.Model.DatumDis;
+import com.example.bangladeshdivdisuppersing.Model.DatumUp;
 import com.example.bangladeshdivdisuppersing.Model.District;
 import com.example.bangladeshdivdisuppersing.Model.Upazila;
 
@@ -17,9 +19,9 @@ import java.util.ArrayList;
 public class UpazilaAdapter extends RecyclerView.Adapter<UpazilaAdapter.viewHolder> {
 
     private Context context;
-    private ArrayList<Upazila>upazilaArrayList;
+    private ArrayList<DatumUp>upazilaArrayList;
 
-    public UpazilaAdapter(Context context,  ArrayList<Upazila>upazilaArrayList) {
+    public UpazilaAdapter(Context context, ArrayList<DatumUp>upazilaArrayList) {
         this.context = context;
         this.upazilaArrayList = upazilaArrayList;
     }
@@ -36,6 +38,10 @@ public class UpazilaAdapter extends RecyclerView.Adapter<UpazilaAdapter.viewHold
 
     @Override
     public void onBindViewHolder(@NonNull UpazilaAdapter.viewHolder holder, int position) {
+        final DatumUp currentUp = upazilaArrayList.get(position);
+
+        String upazilaName = currentUp.getName();
+        holder.nameTV.setText(upazilaName);
 
     }
 

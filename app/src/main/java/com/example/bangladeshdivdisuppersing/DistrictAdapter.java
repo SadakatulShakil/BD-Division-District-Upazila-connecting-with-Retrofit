@@ -1,10 +1,13 @@
 package com.example.bangladeshdivdisuppersing;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +45,17 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.viewHo
 
         String districtName = currentDis.getName();
         holder.nameTV.setText(districtName);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,UpazilaActivity.class);
+                intent.putExtra("district", currentDis);
+                context.startActivity(intent);
+                Toast.makeText(context, "data" + currentDis.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

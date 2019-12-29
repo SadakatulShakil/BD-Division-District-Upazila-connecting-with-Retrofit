@@ -38,7 +38,7 @@ public class DistrictActivity extends AppCompatActivity {
         setContentView(R.layout.activity_district);
 
         Intent intent = getIntent();
-        division = intent.getExtras().getParcelable("districts");
+        division = intent.getExtras().getParcelable("division");
         divId = division.getId();
 
         myDistrictList = new ArrayList<>();
@@ -62,9 +62,9 @@ public class DistrictActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<District>> call, Response<List<District>> response) {
                 if (response.code() == 200) {
-                    List<District> districts = response.body();
+                    List<District> districts = response.body();/////get All District//////
 
-                    myDistrictList.addAll(districts.get(2).getData());
+                    myDistrictList.addAll(districts.get(2).getData());/////get All District//////
 
                     Log.d(TAG, "onResponse: ok "+myDistrictList.size());
 

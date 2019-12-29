@@ -51,7 +51,7 @@ public class DivisionAdapter extends RecyclerView.Adapter<DivisionAdapter.viewHo
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,DistrictActivity.class);
-                intent.putExtra("districts", (Parcelable) currentDiv);
+                intent.putExtra("division", (Parcelable) currentDiv);
                 context.startActivity(intent);
                 Toast.makeText(context, "data" + currentDiv.toString(), Toast.LENGTH_SHORT).show();
 
