@@ -9,10 +9,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.bangladeshdivdisuppersing.Model.DatumDis;
-import com.example.bangladeshdivdisuppersing.Model.DatumDiv;
+import com.example.bangladeshdivdisuppersing.Model.DistrictData;
+import com.example.bangladeshdivdisuppersing.Model.DivisionData;
 import com.example.bangladeshdivdisuppersing.Model.District;
-import com.example.bangladeshdivdisuppersing.Model.Division;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +23,12 @@ import retrofit2.Retrofit;
 
 public class DistrictActivity extends AppCompatActivity {
     public static final String TAG ="District";
-    private DatumDiv division;
-    private ArrayList<DatumDis> myDistrictList;
+    private DivisionData division;
+    private ArrayList<DistrictData> myDistrictList;
     private RecyclerView recyclerView;
-    private DatumDis district;
+    private DistrictData district;
     String divId;
-    private ArrayList<DatumDis> currentDistrict = new ArrayList<>();
+    private ArrayList<DistrictData> currentDistrict = new ArrayList<>();
 
     private DistrictAdapter myDisAdapter;
     @Override
@@ -83,7 +82,7 @@ public class DistrictActivity extends AppCompatActivity {
         });
     }
 
-    private void addCurrentDistrict(ArrayList<DatumDis> currentDistrictList) {
+    private void addCurrentDistrict(ArrayList<DistrictData> currentDistrictList) {
 
         for(int i=0; i<currentDistrictList.size(); i++){
             district = currentDistrictList.get(i);

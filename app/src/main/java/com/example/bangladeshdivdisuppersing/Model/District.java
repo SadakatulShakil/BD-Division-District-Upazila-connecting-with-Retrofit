@@ -25,7 +25,7 @@ public class District {
     private String database;
     @SerializedName("data")
     @Expose
-    private List<DatumDis> data = null;
+    private List<DistrictData> data = null;
 
     public String getType() {
         return type;
@@ -67,11 +67,11 @@ public class District {
         this.database = database;
     }
 
-    public List<DatumDis> getData() {
+    public List<DistrictData> getData() {
         return data;
     }
 
-    public void setData(List<DatumDis> data) {
+    public void setData(List<DistrictData> data) {
         this.data = data;
     }
 

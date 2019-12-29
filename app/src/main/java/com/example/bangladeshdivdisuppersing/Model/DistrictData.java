@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DatumDis implements Parcelable {
+public class DistrictData implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -31,7 +31,7 @@ public class DatumDis implements Parcelable {
     @Expose
     private String url;
 
-    protected DatumDis(Parcel in) {
+    protected DistrictData(Parcel in) {
         id = in.readString();
         divisionId = in.readString();
         name = in.readString();
@@ -41,15 +41,15 @@ public class DatumDis implements Parcelable {
         url = in.readString();
     }
 
-    public static final Creator<DatumDis> CREATOR = new Creator<DatumDis>() {
+    public static final Creator<DistrictData> CREATOR = new Creator<DistrictData>() {
         @Override
-        public DatumDis createFromParcel(Parcel in) {
-            return new DatumDis(in);
+        public DistrictData createFromParcel(Parcel in) {
+            return new DistrictData(in);
         }
 
         @Override
-        public DatumDis[] newArray(int size) {
-            return new DatumDis[size];
+        public DistrictData[] newArray(int size) {
+            return new DistrictData[size];
         }
     };
 
@@ -127,7 +127,7 @@ public class DatumDis implements Parcelable {
 
     @Override
     public String toString() {
-        return "DatumDis{" +
+        return "DistrictData{" +
                 "id='" + id + '\'' +
                 ", divisionId='" + divisionId + '\'' +
                 ", name='" + name + '\'' +

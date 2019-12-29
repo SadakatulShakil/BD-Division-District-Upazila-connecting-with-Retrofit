@@ -1,27 +1,26 @@
 package com.example.bangladeshdivdisuppersing;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bangladeshdivdisuppersing.Model.DatumDis;
-import com.example.bangladeshdivdisuppersing.Model.DatumUp;
-import com.example.bangladeshdivdisuppersing.Model.District;
-import com.example.bangladeshdivdisuppersing.Model.Upazila;
+import com.example.bangladeshdivdisuppersing.Model.UpazilaData;
 
 import java.util.ArrayList;
 
 public class UpazilaAdapter extends RecyclerView.Adapter<UpazilaAdapter.viewHolder> {
 
     private Context context;
-    private ArrayList<DatumUp>upazilaArrayList;
+    private ArrayList<UpazilaData>upazilaArrayList;
 
-    public UpazilaAdapter(Context context, ArrayList<DatumUp>upazilaArrayList) {
+    public UpazilaAdapter(Context context, ArrayList<UpazilaData>upazilaArrayList) {
         this.context = context;
         this.upazilaArrayList = upazilaArrayList;
     }
@@ -38,10 +37,19 @@ public class UpazilaAdapter extends RecyclerView.Adapter<UpazilaAdapter.viewHold
 
     @Override
     public void onBindViewHolder(@NonNull UpazilaAdapter.viewHolder holder, int position) {
-        final DatumUp currentUp = upazilaArrayList.get(position);
+        final UpazilaData currentUp = upazilaArrayList.get(position);
 
         String upazilaName = currentUp.getName();
         holder.nameTV.setText(upazilaName);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UpazilaDetailsActivity.class);
+                intent.putExtra("Upazila",currentUp);
+                context.startActivity(intent);
+                Toast.makeText(context, "Data " + currentUp.getUrl(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

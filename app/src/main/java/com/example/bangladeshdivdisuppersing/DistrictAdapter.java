@@ -2,7 +2,6 @@ package com.example.bangladeshdivdisuppersing;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +11,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bangladeshdivdisuppersing.Model.DatumDis;
-import com.example.bangladeshdivdisuppersing.Model.District;
-import com.example.bangladeshdivdisuppersing.Model.Division;
+import com.example.bangladeshdivdisuppersing.Model.DistrictData;
 
 import java.util.ArrayList;
 
 public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.viewHolder> {
 
     private Context context;
-    private ArrayList<DatumDis>districtArrayList;
+    private ArrayList<DistrictData>districtArrayList;
 
-    public DistrictAdapter(Context context, ArrayList<DatumDis> districtArrayList) {
+    public DistrictAdapter(Context context, ArrayList<DistrictData> districtArrayList) {
         this.context = context;
         this.districtArrayList = districtArrayList;
     }
@@ -41,7 +38,7 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.viewHo
     @Override
     public void onBindViewHolder(@NonNull DistrictAdapter.viewHolder holder, int position) {
 
-        final DatumDis currentDis = districtArrayList.get(position);
+        final DistrictData currentDis = districtArrayList.get(position);
 
         String districtName = currentDis.getName();
         holder.nameTV.setText(districtName);

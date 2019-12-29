@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.bangladeshdivdisuppersing.Model.DatumDis;
-import com.example.bangladeshdivdisuppersing.Model.DatumUp;
+import com.example.bangladeshdivdisuppersing.Model.DistrictData;
+import com.example.bangladeshdivdisuppersing.Model.UpazilaData;
 import com.example.bangladeshdivdisuppersing.Model.Upazila;
 
 import java.util.ArrayList;
@@ -21,12 +21,12 @@ import retrofit2.Retrofit;
 
 public class UpazilaActivity extends AppCompatActivity {
     public static final String TAG ="Upazila";
-    private DatumDis district;
-    private ArrayList<DatumUp> upazilaList;
-    private ArrayList<DatumUp> currentUpazilaList = new ArrayList<>();
+    private DistrictData district;
+    private ArrayList<UpazilaData> upazilaList;
+    private ArrayList<UpazilaData> currentUpazilaList = new ArrayList<>();
     String disId;
     private RecyclerView recyclerView;
-    private DatumUp upazila;
+    private UpazilaData upazila;
 
     private UpazilaAdapter myUpAdapter;
     @Override
@@ -75,7 +75,7 @@ public class UpazilaActivity extends AppCompatActivity {
         });
     }
 
-    private void addCurrentUpazila(ArrayList<DatumUp> allUpazilaList) {
+    private void addCurrentUpazila(ArrayList<UpazilaData> allUpazilaList) {
         for(int i=0; i< allUpazilaList.size(); i++){
             upazila = allUpazilaList.get(i);
             if(disId.equals(upazila.getDistrictId())){

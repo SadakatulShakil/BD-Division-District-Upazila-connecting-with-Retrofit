@@ -25,7 +25,7 @@ public class Division {
     private String database;
     @SerializedName("data")
     @Expose
-    private List<DatumDiv> data = null;
+    private List<DivisionData> data = null;
 
     public String getType() {
         return type;
@@ -67,11 +67,11 @@ public class Division {
         this.database = database;
     }
 
-    public List<DatumDiv> getData() {
+    public List<DivisionData> getData() {
         return data;
     }
 
-    public void setData(List<DatumDiv> data) {
+    public void setData(List<DivisionData> data) {
         this.data = data;
     }
 

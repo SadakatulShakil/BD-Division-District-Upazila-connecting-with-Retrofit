@@ -25,7 +25,7 @@ public class Upazila {
     private String database;
     @SerializedName("data")
     @Expose
-    private List<DatumUp> data = null;
+    private List<UpazilaData> data = null;
 
     public String getType() {
         return type;
@@ -67,11 +67,11 @@ public class Upazila {
         this.database = database;
     }
 
-    public List<DatumUp> getData() {
+    public List<UpazilaData> getData() {
         return data;
     }
 
-    public void setData(List<DatumUp> data) {
+    public void setData(List<UpazilaData> data) {
         this.data = data;
     }
 

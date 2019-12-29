@@ -9,10 +9,8 @@ import android.util.Log;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.bangladeshdivdisuppersing.Model.DatumDiv;
-import com.example.bangladeshdivdisuppersing.Model.District;
+import com.example.bangladeshdivdisuppersing.Model.DivisionData;
 import com.example.bangladeshdivdisuppersing.Model.Division;
-import com.example.bangladeshdivdisuppersing.Model.Upazila;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-    private ArrayList<DatumDiv> mydivDataList;
+    private ArrayList<DivisionData> mydivDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

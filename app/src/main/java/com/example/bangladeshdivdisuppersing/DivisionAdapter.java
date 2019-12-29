@@ -12,20 +12,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bangladeshdivdisuppersing.Model.DatumDis;
-import com.example.bangladeshdivdisuppersing.Model.DatumDiv;
-import com.example.bangladeshdivdisuppersing.Model.DatumUp;
-import com.example.bangladeshdivdisuppersing.Model.Division;
+import com.example.bangladeshdivdisuppersing.Model.DivisionData;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DivisionAdapter extends RecyclerView.Adapter<DivisionAdapter.viewHolder> {
 
     private Context context;
-    private ArrayList<DatumDiv>divisionArrayList;
+    private ArrayList<DivisionData>divisionArrayList;
 
-    public DivisionAdapter(Context context, ArrayList<DatumDiv> divisionArrayList) {
+    public DivisionAdapter(Context context, ArrayList<DivisionData> divisionArrayList) {
         this.context = context;
         this.divisionArrayList = divisionArrayList;
     }
@@ -42,7 +38,7 @@ public class DivisionAdapter extends RecyclerView.Adapter<DivisionAdapter.viewHo
     @Override
     public void onBindViewHolder(@NonNull DivisionAdapter.viewHolder holder, int position) {
 
-        final DatumDiv currentDiv = divisionArrayList.get(position);
+        final DivisionData currentDiv = divisionArrayList.get(position);
 
         String divisionName = currentDiv.getName();
 

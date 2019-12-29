@@ -7,11 +7,14 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DatumDiv implements Parcelable {
+public class UpazilaData implements Parcelable {
 
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("district_id")
+    @Expose
+    private String districtId;
     @SerializedName("name")
     @Expose
     private String name;
@@ -22,22 +25,23 @@ public class DatumDiv implements Parcelable {
     @Expose
     private String url;
 
-    protected DatumDiv(Parcel in) {
+    protected UpazilaData(Parcel in) {
         id = in.readString();
+        districtId = in.readString();
         name = in.readString();
         bnName = in.readString();
         url = in.readString();
     }
 
-    public static final Creator<DatumDiv> CREATOR = new Creator<DatumDiv>() {
+    public static final Creator<UpazilaData> CREATOR = new Creator<UpazilaData>() {
         @Override
-        public DatumDiv createFromParcel(Parcel in) {
-            return new DatumDiv(in);
+        public UpazilaData createFromParcel(Parcel in) {
+            return new UpazilaData(in);
         }
 
         @Override
-        public DatumDiv[] newArray(int size) {
-            return new DatumDiv[size];
+        public UpazilaData[] newArray(int size) {
+            return new UpazilaData[size];
         }
     };
 
@@ -47,6 +51,14 @@ public class DatumDiv implements Parcelable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getDistrictId() {
+        return districtId;
+    }
+
+    public void setDistrictId(String districtId) {
+        this.districtId = districtId;
     }
 
     public String getName() {
@@ -81,6 +93,7 @@ public class DatumDiv implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(id);
+        dest.writeString(districtId);
         dest.writeString(name);
         dest.writeString(bnName);
         dest.writeString(url);
@@ -88,8 +101,9 @@ public class DatumDiv implements Parcelable {
 
     @Override
     public String toString() {
-        return "DatumDiv{" +
+        return "UpazilaData{" +
                 "id='" + id + '\'' +
+                ", districtId='" + districtId + '\'' +
                 ", name='" + name + '\'' +
                 ", bnName='" + bnName + '\'' +
                 ", url='" + url + '\'' +
