@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bangladeshdivdisuppersing.Model.DatumDis;
 import com.example.bangladeshdivdisuppersing.Model.District;
 import com.example.bangladeshdivdisuppersing.Model.Division;
 
@@ -17,9 +18,9 @@ import java.util.ArrayList;
 public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.viewHolder> {
 
     private Context context;
-    private ArrayList<District>districtArrayList;
+    private ArrayList<DatumDis>districtArrayList;
 
-    public DistrictAdapter(Context context, ArrayList<District> districtArrayList) {
+    public DistrictAdapter(Context context, ArrayList<DatumDis> districtArrayList) {
         this.context = context;
         this.districtArrayList = districtArrayList;
     }
@@ -36,6 +37,11 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.viewHo
 
     @Override
     public void onBindViewHolder(@NonNull DistrictAdapter.viewHolder holder, int position) {
+
+        final DatumDis currentDis = districtArrayList.get(position);
+
+        String districtName = currentDis.getName();
+        holder.nameTV.setText(districtName);
 
     }
 

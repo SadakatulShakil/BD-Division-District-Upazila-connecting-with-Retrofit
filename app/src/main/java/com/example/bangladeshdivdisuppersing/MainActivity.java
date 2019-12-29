@@ -27,9 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG ="MainActivity";
     private Spinner divSpinner, DisSpinner, UpSpinner;
 
-    private ArrayList<Division> myDivisionList;
-    private ArrayList<District> myDistrictList;
-    private ArrayList<Upazila> myUpazilaList;
+
 
     private DivisionAdapter myDivAdapter;
     private DistrictAdapter myDisAdapter;
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-    private ArrayList<DatumDiv>mydivDataList;
+    private ArrayList<DatumDiv> mydivDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.marvelItemsRecView);
-
-        myDivisionList = new ArrayList<>();
-        myDistrictList = new ArrayList<>();
-        myUpazilaList = new ArrayList<>();
-
         mydivDataList = new ArrayList<>();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -72,11 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     List<Division> divisions = response.body();
 
-                    List<DatumDiv> datumDivList = new ArrayList<>();
+                    mydivDataList.addAll(divisions.get(2).getData());
 
-                    datumDivList.addAll(divisions.get(2).getData());
-
-                    Log.d(TAG, "onResponse: ok "+datumDivList.size());
+                    Log.d(TAG, "onResponse: ok "+mydivDataList.size());
 
                     //myDivisionList.addAll(divisions);
                     myDivAdapter.notifyDataSetChanged();
